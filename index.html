@@ -20,17 +20,14 @@
         }
 
         header, .wave-header {
-            background: #131313;
+            background: #1e1e1e;
             color: white;
+            width: 100%;
             text-align: center;
             padding: 1.5rem 1rem;
-            width: 100%;
             position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
-                        border: 3px solid white; /* Add white border */
-            border-radius: 1%; /* Make it round */
         }
 
         .header-content {
@@ -158,7 +155,7 @@
         .script-content button {
             margin-top: 1rem;
             padding: 0.5rem 1rem;
-            background: #00bfff;
+            background: #1e1e1e;
             color: white;
             border: none;
             border-radius: 5px;
@@ -167,7 +164,7 @@
         }
 
         .script-content button:hover {
-            background: #0099cc;
+            background: #1e1e1e;
         }
 
         @media (max-width: 600px) {
@@ -211,6 +208,7 @@
     <div class="header-content">
         <img src="https://cdn.discordapp.com/attachments/1234931860631457803/1243208335218704384/Picsart_24-05-23_14-26-39-739.png?ex=6650a37c&is=664f51fc&hm=91a3b2dbe63ed6704bd2c8b92a957f7da33ca689955450a11f4c41da57276b55&" alt="Wave Hub Logo" style="width: 240px; height: auto; border-radius: 5px; border: none;">
         <h2>Find the best Roblox scripts here!</h2>
+                <h4>Trusted & Secure!</h4>
     </div>
     <div class="search-box">
         <input type="text" id="searchInput" placeholder="Search scripts...">
@@ -219,35 +217,77 @@
 
     <main>
         <div class="script-container">
-            <section class="script-banner" data-title="Script Title 1" onclick="toggleScript(this)">
-                <img src="https://cdn.discordapp.com/attachments/1190993832439980074/1242744055201534003/Picsart_24-05-21_15-53-26-593.jpg?ex=66504497&is=664ef317&hm=d4ddf954a2d929cd7b5bc1cd50dda96e2e9df345fda8ca2ca63daa639c580b27&" alt="Script Banner" class="script-image">
-                <div class="script-info">
-                    <h2 class="script-title">Script Title 1</h2>
-                    <p class="script-description">This is a short description of Script 1.</p>
-                </div>
-                <div class="script-content">
-                    <pre><code>/* Your script here */</code></pre>
-                    <button onclick="copyScript(event, this)">Copy Script</button>
-                </div>
-            </section>
-
-            <section class="script-banner" data-title="Script Title 2" onclick="toggleScript(this)">
-                <img src="https://cdn.discordapp.com/attachments/1190993832439980074/1242744055201534003/Picsart_24-05-21_15-53-26-593.jpg?ex=66504497&is=664ef317&hm=d4ddf954a2d929cd7b5bc1cd50dda96e2e9df345fda8ca2ca63daa639c580b27&" alt="Script Banner" class="script-image">
-                <div class="script-info">
-                    <h2 class="script-title">Script Title 2</h2>
-                    <p class="script-description">This is a short description of Script 2.</p>
-                </div>
-                <div class="script-content">
-                    <pre><code>/* Your script here */</code></pre>
-                    <button onclick="copyScript(event, this)">Copy Script</button>
-                </div>
-            </section>
-            <!-- Add more sections for additional scripts -->
+            <!-- Script sections will be dynamically added here -->
         </div>
         <p id="noResultsMessage" style="display: none; color: white;">No results found :(</p>
     </main>
 
     <script>
+        // Array to hold script information
+        const scripts = [
+            {
+                title: "Trade Scam",
+                description: "Game: Pet Simulator 99!",
+                code: "/* Your script 1 code here */"
+            },
+            {
+                title: "Huge Games Premium Crack",
+                description: "Game: Pet Simulator 99!",
+                code: "/* Your script 2 code here */"
+            },
+            {
+                title: "Huge Games",
+                description: "Game: Pet Simulator 99!",
+                code: "/* Your script 2 code here */"
+            },
+            {
+                title: "Trade Stealer",
+                description: "Game: Pet Simulator 99!",
+                code: "/* Your script 2 code here */"
+            },
+            {
+                title: "Find All Shiny Relics",
+                description: "Game: Pet Simulator 99!",
+                code: "/* Your script 2 code here */"
+            },
+            {
+                title: "Dupe",
+                description: "Game: Pet Simulator 99!",
+                code: "/* Your script 2 code here */"
+            },
+            // Add more scripts as needed
+        ];
+
+        // Function to generate HTML for each script
+        function generateScriptHTML(script) {
+            return `
+                <section class="script-banner" data-title="${script.title}" onclick="toggleScript(this)">
+                    <div class="script-info">
+                        <h2 class="script-title">${script.title}</h2>
+                        <p class="script-description">${script.description}</p>
+                    </div>
+                    <div class="script-content">
+                        <pre><code>${script.code}</code></pre>
+                        <button onclick="copyScript(event, this)">Copy Script</button>
+                    </div>
+                </section>
+            `;
+        }
+
+        // Function to add scripts to the page
+        function addScriptsToPage() {
+            const scriptContainer = document.querySelector('.script-container');
+            let scriptHTML = '';
+            scripts.forEach(script => {
+                scriptHTML += generateScriptHTML(script);
+            });
+            scriptContainer.innerHTML = scriptHTML;
+        }
+
+        // Call the function to add scripts when the page loads
+        window.addEventListener('load', addScriptsToPage);
+
+        // Other JavaScript functions remain the same
         function toggleScript(element) {
             const content = element.querySelector('.script-content');
             content.style.display = content.style.display === 'block' ? 'none' : 'block';
@@ -289,3 +329,4 @@
     </script>
 </body>
 </html>
+
