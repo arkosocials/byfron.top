@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Hub - Share Your Scripts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-v5.6kMNElfGjvKuOibie6ZupCiMb6bOcjFmyVSVd1PAjK1ypG9CfPL9F3ek2Y0Tb+" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+        body {
+            font-family: 'Fredoka One', cursive;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header, .wave-header {
+            background: #131313;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+                        border: 3px solid white; /* Add white border */
+            border-radius: 1%; /* Make it round */
+        }
+
+        .header-content {
+            width: 100%;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 1.2; /* Adjust line height */
+        }
+
+        .header-content p {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 100px;
+            height: auto;
+            border: 3px solid white; /* Add white border */
+            border-radius: 50%; /* Make it round */
+            padding: 5px; /* Adjust padding if needed */
+        }
+
+        .search-box {
+            margin-top: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-box input[type="text"] {
+            padding: 10px 30px 10px 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            width: 300px;
+            font-family: 'Fredoka One', cursive;
+            color: #ffffff;
+            background-color: #333;
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5); /* Glowing white outline */
+        }
+
+        .search-box input[type="text"]:focus {
+            outline: none;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 2rem 1rem;
+        }
+
+        .script-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            max-width: 500px;
+        }
+
+        .script-banner {
+            background: #333;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            margin: 1rem 0;
+            width: 100%;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .script-banner:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .script-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .script-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .script-title {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .script-description {
+            margin: 0.5rem 0 0;
+            color: #aaaaaa;
+            font-size: 0.875rem;
+        }
+
+        .script-content {
+            display: none;
+            padding: 1rem;
+            border-top: 1px solid #444444;
+            background: #2a2a2a;
+        }
+
+        .script-content pre {
+            background: #444444;
+            padding: 0.75rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #e0e0e0;
+        }
+
+        .script-content button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #00bfff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .script-content button:hover {
+            background: #0099cc;
+        }
+
+        @media (max-width: 600px) {
+            .wave-header {
+                padding: 1rem 0.5rem;
+            }
+
+            .header-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .header-content p {
+                font-size: 0.875rem;
+            }
+
+            .search-box input[type="text"] {
+                width: 80%;
+            }
+
+            .script-info {
+                padding: 0.75rem;
+            }
+
+            .script-content {
+                padding: 0.75rem;
+            }
+
+            .script-title {
+                font-size: 1.25rem;
+            }
+
+            .script-description {
+                font-size: 0.75rem;
+            }
+          }
+          
+    </style>
+</head>
+<body>
+<header class="wave-header">
+    <div class="header-content">
+        <img src="https://cdn.discordapp.com/attachments/1234931860631457803/1243208335218704384/Picsart_24-05-23_14-26-39-739.png?ex=6650a37c&is=664f51fc&hm=91a3b2dbe63ed6704bd2c8b92a957f7da33ca689955450a11f4c41da57276b55&" alt="Wave Hub Logo" style="width: 240px; height: auto; border-radius: 5px; border: none;">
+        <h2>Find the best Roblox scripts here!</h2>
+    </div>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search scripts...">
+    </div>
+</header>
+
+    <main>
+        <div class="script-container">
+            <section class="script-banner" data-title="Script Title 1" onclick="toggleScript(this)">
+                <img src="https://cdn.discordapp.com/attachments/1190993832439980074/1242744055201534003/Picsart_24-05-21_15-53-26-593.jpg?ex=66504497&is=664ef317&hm=d4ddf954a2d929cd7b5bc1cd50dda96e2e9df345fda8ca2ca63daa639c580b27&" alt="Script Banner" class="script-image">
+                <div class="script-info">
+                    <h2 class="script-title">Script Title 1</h2>
+                    <p class="script-description">This is a short description of Script 1.</p>
+                </div>
+                <div class="script-content">
+                    <pre><code>/* Your script here */</code></pre>
+                    <button onclick="copyScript(event, this)">Copy Script</button>
+                </div>
+            </section>
+
+            <section class="script-banner" data-title="Script Title 2" onclick="toggleScript(this)">
+                <img src="https://cdn.discordapp.com/attachments/1190993832439980074/1242744055201534003/Picsart_24-05-21_15-53-26-593.jpg?ex=66504497&is=664ef317&hm=d4ddf954a2d929cd7b5bc1cd50dda96e2e9df345fda8ca2ca63daa639c580b27&" alt="Script Banner" class="script-image">
+                <div class="script-info">
+                    <h2 class="script-title">Script Title 2</h2>
+                    <p class="script-description">This is a short description of Script 2.</p>
+                </div>
+                <div class="script-content">
+                    <pre><code>/* Your script here */</code></pre>
+                    <button onclick="copyScript(event, this)">Copy Script</button>
+                </div>
+            </section>
+            <!-- Add more sections for additional scripts -->
+        </div>
+        <p id="noResultsMessage" style="display: none; color: white;">No results found :(</p>
+    </main>
+
+    <script>
+        function toggleScript(element) {
+            const content = element.querySelector('.script-content');
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function copyScript(event, button) {
+            event.stopPropagation();
+            const scriptText = button.previousElementSibling.innerText;
+            navigator.clipboard.writeText(scriptText).then(() => {
+                button.innerText = 'Copied!';
+                setTimeout(() => {
+                    button.innerText = 'Copy Script';
+                }, 2000);
+            });
+        }
+
+        document.getElementById("searchInput").addEventListener("input", function() {
+            const searchValue = this.value.toLowerCase();
+            const scriptContainers = document.querySelectorAll('.script-banner');
+            let foundResults = false;
+
+            scriptContainers.forEach(function(scriptContainer) {
+                const title = scriptContainer.dataset.title.toLowerCase();
+                if (title.includes(searchValue)) {
+                    scriptContainer.style.display = "block";
+                    foundResults = true;
+                } else {
+                    scriptContainer.style.display = "none";
+                }
+            });
+
+            const noResultsMessage = document.getElementById("noResultsMessage");
+            if (foundResults) {
+                noResultsMessage.style.display = "none";
+            } else {
+                noResultsMessage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
