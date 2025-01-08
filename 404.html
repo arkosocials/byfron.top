@@ -1,25 +1,123 @@
-<html><body><pre><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="0">
-    <title>arko was here</title>
+    <meta http-equiv="refresh" content="5">
+    <title>Wait</title>
     <style>
+        /* Reset styles for a clean slate */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #333;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #FF6F61;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #FF6F61;
             color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4a3f;
+        }
+
+        .refresh-timer {
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .footer span {
+            color: #FF6F61;
+            font-weight: bold;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Hey! Your website will be online soon!</h1>
-    <h1>Please Wait! (this might take up to 1 minute)</h1>
+    <div class="container">
+        <h1>Hey! Your page will soon be online</h1>
+        <p>We're working hard to get everything ready. Please check back shortly.</p>
+        <button onclick="window.location.reload();">Refresh Page</button>
+        <p class="refresh-timer">The page will refresh automatically in <span id="counter">5</span> seconds.</p>
+    </div>
+
+    <div class="footer">
+        Much Love, <span>Arko</span>
+    </div>
+
+    <script>
+        let countdown = 5;
+        const counterElement = document.getElementById("counter");
+
+        setInterval(function() {
+            countdown--;
+            counterElement.textContent = countdown;
+            if (countdown <= 0) {
+                window.location.reload();
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
-</pre></body></html>
